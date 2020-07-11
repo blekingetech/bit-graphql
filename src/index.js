@@ -23,7 +23,8 @@ const resolvers = {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  introspection: true
+  introspection: true,
+  playground: process.env.PLAYGROUND || false,
 });
 
 server.listen({port: process.env.PORT || 8080}).then(({ url }) => {
