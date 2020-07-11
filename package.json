@@ -1,0 +1,21 @@
+{
+  "name": "bit-graphql",
+  "version": "0.0.1",
+  "description": "Content API for Blekinge Tech site",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node ./src",
+    "dev": "nodemon ./src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.15.1",
+    "contentful": "^7.14.5",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.3.0",
+    "nodemon": "^2.0.4"
+  }
+}
