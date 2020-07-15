@@ -7,9 +7,22 @@ module.exports = {
     pageDescription: (data) => data.fields.pageDescription,
     content: (data) => data.fields.content
   },
+  RichTextBody: {
+    id: (data) => data.sys.id,
+    title: (data) => data.fields.title,
+    body: () => null
+  },
+  MarkdownBody: {
+    id: (data) => data.sys.id,
+    title: (data) => data.fields.title,
+    body: (data) => data.fields.body
+  },
   PageContent: {
     __resolveType(obj, context, info) {
-      return  obj.sys.contentType.sys.id || null;
+      const type = obj.sys.contentType.sys.id;
+      if(type === 'richTextBody') return 'RichTextBody';
+      if(type === 'markdownBody') return 'MarkdownBody';
+      if(type === 'heroBlock') return 'HeroBlock';
     }
   }
 };

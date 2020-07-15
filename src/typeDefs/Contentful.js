@@ -9,7 +9,20 @@ const contentfulTypeDefs = gql`
         content: [PageContent]
     }
 
-    union PageContent = HeroBlock
+    union PageContent = HeroBlock | RichTextBody | MarkdownBody
+    
+    type RichTextBody {
+        id: ID!
+        title: String
+        # body: [RichTextType]
+        body: String
+    }
+
+    type MarkdownBody {
+        id: ID!
+        title: String
+        body: String
+    }
     
     type HeroBlock {
         id: ID!
